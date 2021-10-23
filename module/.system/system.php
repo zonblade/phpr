@@ -12,7 +12,7 @@ $global_apps_array = array();
 foreach (glob(APPS . "/*") as $urls) {
     $last_word_start = strrpos($urls, '/') + 1;
     $last_word = substr($urls, $last_word_start);
-    @$global_apps_array[$last_word] .= APPS . '/' . $last_word . '/';
+    $global_apps_array = array_merge([$last_word=>APPS . '/' . $last_word . '/'],$global_apps_array);
 }
 $GLOBALS['installed_apps'] = $global_apps_array;
 
