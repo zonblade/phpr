@@ -14,6 +14,6 @@ state\setMultiState(
 # visual router
 display\routev2(
     [
-        '' => $apps->app('front'),
+        '' => $homeapps->app('front'),
     ]
 );
