@@ -69,7 +69,7 @@ if (DB_SETUP != false) {
         return $a;
     }
 
-    function insert($table_name, $array)
+    function insert($table_name, $array, $status=false)
     {
         $db = phpr_db_models_connect();
         /*
@@ -93,8 +93,39 @@ if (DB_SETUP != false) {
         $value = "(" . rtrim(trim($value), ',') . " )";
         $sql = "INSERT INTO `$table_name`$table VALUES $value";
         mysqli_query($db, $sql);
-        if (mysqli_affected_rows($db) > 0) {
-            return true;
+        if($status===false){
+            if (mysqli_affected_rows($db) > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }else{
+            if (mysqli_affected_rows($db) > 0) {
+                return (object)['status' => true, 'id' => mysqli_insert_id($db)];
+            } else {
+                return (object)['status' => false];
+            }
+        }
+    }
+    
+    function raw($sql, $type)
+    {
+        $db     = phpr_db_models_connect();
+        $query  = mysqli_query($db, $sql);
+        if ($type == 'ASSOC') {
+            return mysqli_fetch_assoc($query);
+        } elseif ($type == 'ALL') {
+            return mysqli_fetch_all($query, MYSQLI_ASSOC);
+        } elseif ($type == 'NUM') {
+            return mysqli_num_rows($query);
+        } elseif ($type == 'ARRAY') {
+            return mysqli_fetch_array($query);
+        } elseif ($type == 'QUERY') {
+            if (mysqli_affected_rows($db) > 0) {
+                return (object)['status' => true];
+            } else {
+                return (object)['status' => false];
+            }
         } else {
             return false;
         }
