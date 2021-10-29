@@ -477,6 +477,41 @@ class _render_{
         return $this;
     }
 
+    # non slash version
+    
+    function init($init=['type'=>'other']){
+        $this->init = $init;
+        return $this;
+    }
+
+    function method($render_type='PASS'){
+        $this->type = strtoupper($render_type);
+        return $this;
+    }
+
+    function path($path){
+        $this->path = $path;
+        return $this;
+    }
+
+    function filetype($file_extension='php'){
+        $this->extension = $file_extension;
+        return $this;
+    }
+
+    function context($context=[]){
+        $this->context = $context;
+        return $this;
+    }
+
+    function headless($title='headless',$info='headless'){
+        $this->H_title = $title;
+        $this->H_info = $info;
+        $this->type = 'headless';
+        $this->extension = 'php';
+        return $this;
+    }
+
     #render is render lol
 
     function render(){
