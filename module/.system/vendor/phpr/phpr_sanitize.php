@@ -40,6 +40,18 @@ function filter($param,$val,$regex){
     }
 }
 
+function minify($string){
+    return preg_replace('/\s+/',' ',str_replace(["\n","\n\r","\r","\r\n"],' ',$string));
+}
+
+function html_encode($string){
+    return htmlspecialchars($string);
+}
+
+function html_decode($string){
+    return htmlspecialchars_decode($string);
+}
+
 function lowcase($string){
     return \strtolower($string);
 }
