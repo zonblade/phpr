@@ -79,8 +79,8 @@ function URI($url_path, $file_path)
         include $file_path;
         die();
     } else {
-        if (URIFOLDER != '/') {
-            $this_url = str_replace(URIFOLDER, '', $SERVERURI);
+        if (urlfolder() != '/') {
+            $this_url = str_replace(urlfolder(), '', $SERVERURI);
         } else {
             $this_url = $SERVERURI;
             $url_path = '/' . $url_path;
@@ -89,23 +89,23 @@ function URI($url_path, $file_path)
         if (strpos($url_path, '[SLUG]/') !== false) {
             $SLUG = str_replace('[SLUG]/', '', $url_path);
             $SLUG = preg_replace('#' . $SLUG . '#', '', $SERVERURI);
-            $SLUG = preg_replace('#' . URIFOLDER . '#', '', $SLUG);
+            $SLUG = preg_replace('#' . urlfolder() . '#', '', $SLUG);
             $SLUG = str_replace('/', '', $SLUG);
 
             $this_url = str_replace($SLUG, '[SLUG]', $SERVERURI);
-            if (URIFOLDER != '/') {
-                $this_url = str_replace(URIFOLDER, '', $this_url);
+            if (urlfolder() != '/') {
+                $this_url = str_replace(urlfolder(), '', $this_url);
             }
         } elseif (strpos($url_path, '[INT]/') !== false) {
             $INT = str_replace('[INT]/', '', $url_path);
             $INT = preg_replace('#' . $INT . '#', '', $SERVERURI);
-            $INT = preg_replace('#' . URIFOLDER . '#', '', $INT);
+            $INT = preg_replace('#' . urlfolder() . '#', '', $INT);
             $INT = str_replace('/', '', $INT);
             $INT = preg_replace('/[^0-9.]+/', '', $INT);
 
             $this_url = str_replace($INT, '[INT]', $SERVERURI);
-            if (URIFOLDER != '/') {
-                $this_url = str_replace(URIFOLDER, '', $this_url);
+            if (urlfolder() != '/') {
+                $this_url = str_replace(urlfolder(), '', $this_url);
             }
         }
         switch ($this_url) {
@@ -140,7 +140,7 @@ function RunAll($default)
         include $urls;
     }
     */
-    $global_apps_array = GLOBAPPSARRAY;
+    $global_apps_array = globapp();
     foreach ($global_apps_array as $appname => $apppath) {
         if ($appname != $default && $appname != 'phpr-default') {
             include $apppath . 'urls.php';
@@ -182,8 +182,8 @@ function route($array)
 {
     $SERVERURI = parse_url($_SERVER['REQUEST_URI']);
     $SERVERURI = $SERVERURI['path'];
-    if (URIFOLDER != '/') {
-        $this_url = str_replace(URIFOLDER, '', $SERVERURI);
+    if (urlfolder() != '/') {
+        $this_url = str_replace(urlfolder(), '', $SERVERURI);
     } else {
         $this_url = $SERVERURI;
     }
@@ -202,9 +202,9 @@ function route($array)
 
 function URIV2($arr_path_init, $app_path, $SERVERPOD)
 {
-    // $urifolder = str_replace('/', '', URIFOLDER);
-    $arr_path = URIFOLDER . '/' . $arr_path_init;
-    // if ($urifolder == '') {
+    // $urlfolder() = str_replace('/', '', urlfolder());
+    $arr_path = urlfolder() . '/' . $arr_path_init;
+    // if ($urlfolder() == '') {
     //     $arr_path = $arr_path_init;
     // }
     $SERVOPATH = explode("/", $arr_path);

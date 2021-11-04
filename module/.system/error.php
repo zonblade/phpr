@@ -1,6 +1,6 @@
 <?php
 
-use phpr\Apps\Run as apps;
+use phpr\apps\run as apps;
 
 $_DIR = ROOT_FOLDER;
 function test(array $input1, array $input2): bool

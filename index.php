@@ -22,10 +22,15 @@
 /*Model Folder       :: */ define("MODL_FOLDER",__DIR__.'/module');
 /*/////////////////////////////////////////////////*/
 
-set_error_handler(function($errno, $errstr, $errfile, $errline) {
-    if (0 === error_reporting()) {return false;}
-    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);});
-
+set_error_handler(function ($errno, $errstr, $errfile, $errline) {
+    if (0 === error_reporting()) {
+        return false;
+    }
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+});
+define("APPS",__DIR__.'/module/apps'       );
+define("URLS",__DIR__.'/module/urls.php'   );
+include __DIR__.'/module/.system/system.php';
 try{
     include __DIR__.'/module/urls.php';
 }catch (\Throwable $e){

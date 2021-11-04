@@ -1,18 +1,18 @@
 <?php
 
-namespace mongo\auto\v2;
+namespace phpr\mongodb;
 
 use MongoDB\Driver as Mongod; use MongoDB;
 
-class _connect
+class instance
 {
     private $conn;
     private $instance;
     function __construct($instance)
     {
-        $this->dbuser   = PHPRMONGOD[$instance]['user']; $this->dbpass   = PHPRMONGOD[$instance]['pass']; $this->dbhost   = PHPRMONGOD[$instance]['host']; $this->dbport   = (int)PHPRMONGOD[$instance]['port']; $this->dbsource = PHPRMONGOD[$instance]['source'];
+        $this->dbuser   = dbmongo()[$instance]->user; $this->dbpass   = dbmongo()[$instance]['pass']; $this->dbhost   = dbmongo()[$instance]->host; $this->dbport   = (int)dbmongo()[$instance]->port; $this->dbsource = dbmongo()[$instance]->source;
         try { 
-            if(PHPRMONGOD[$instance]['user']===''){ 
+            if(dbmongo()[$instance]->user===''){ 
                 $this->conn = new Mongod\Manager('mongodb://' . $this->dbhost . ':' . $this->dbport . '/?readPreference=primary&appname=MongoDB%20Compass&ssl=false');
             }else{
                 $this->conn = new Mongod\Manager('mongodb://' . $this->dbuser . ':' . $this->dbpass . '@' . $this->dbhost . ':' . $this->dbport . '/?authSource=' . $this->dbsource . '&readPreference=primary&appname=MongoDB%20Compass&ssl=false');
