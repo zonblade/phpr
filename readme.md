@@ -7,6 +7,11 @@ PHPR or PHP Array Framework is a framework highly dependent to an array structur
 - [x] Project Initiator : [zonblade](https://instagram.com/zonblade)
 - [x] System Inspiration : [Django](https://docs.djangoproject.com/)
 
+```
+currently under intense development,
+not recomended to use current version.
+```
+
 ## Basic Folder Structure
 ```bash
 ├── assets
