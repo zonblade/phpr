@@ -36,6 +36,15 @@ function e($content="hello world",$header=false)
     }
 }
 
+function json($json,$pretty=true){
+    header("Content-type: application/json");
+    if($pretty===true){
+        echo json_encode($json,JSON_PRETTY_PRINT);
+    }else{
+        echo json_encode($json);
+    }
+}
+
 class data{
 
     function file($file){
