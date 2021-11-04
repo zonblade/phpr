@@ -36,12 +36,12 @@ function e($content="hello world",$header=false)
     }
 }
 
-function json($json,$pretty=true){
+function json($array,$pretty=true){
     header("Content-type: application/json");
     if($pretty===true){
-        echo json_encode($json,JSON_PRETTY_PRINT);
+        echo json_encode($array,JSON_PRETTY_PRINT);
     }else{
-        echo json_encode($json);
+        echo json_encode($array);
     }
 }
 
