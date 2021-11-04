@@ -2,9 +2,9 @@
 
 use phpr\state          as state;
 use phpr\page\display   as display;
-use phpr\Apps\Run       as apps;
+use phpr\apps           as apps;
 # init
-$homeapps = new apps\_apps_('home');
+$homeapps = new apps\name('home');
 # temporary data
 state\setMultiState(
     [

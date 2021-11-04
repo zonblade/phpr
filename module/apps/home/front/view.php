@@ -1,7 +1,7 @@
 <?php
 
 use phpr\page\render as render;
-use phpr\Apps\Run as apps;
+use phpr\apps\run    as apps;
 
 # passing variables.
 $context = [
