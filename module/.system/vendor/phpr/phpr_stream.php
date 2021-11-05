@@ -45,6 +45,11 @@ function json($array,$pretty=true){
     }
 }
 
+function js($string,$pretty=true){
+    header("Content-type: application/javascript");
+    echo $string;
+}
+
 class data{
 
     function file($file){
