@@ -10,7 +10,7 @@ class instance
     private $instance;
     function __construct($instance)
     {
-        $this->dbuser   = dbmongo()[$instance]->user; $this->dbpass   = dbmongo()[$instance]['pass']; $this->dbhost   = dbmongo()[$instance]->host; $this->dbport   = (int)dbmongo()[$instance]->port; $this->dbsource = dbmongo()[$instance]->source;
+        $this->dbuser   = dbmongo()[$instance]->user; $this->dbpass   = dbmongo()[$instance]->pass; $this->dbhost   = dbmongo()[$instance]->host; $this->dbport   = (int)dbmongo()[$instance]->port; $this->dbsource = dbmongo()[$instance]->source;
         try { 
             if(dbmongo()[$instance]->user===''){ 
                 $this->conn = new Mongod\Manager('mongodb://' . $this->dbhost . ':' . $this->dbport . '/?readPreference=primary&appname=MongoDB%20Compass&ssl=false');
