@@ -1,0 +1,15 @@
+{
+    "version"  : "0.5.9",
+    "php"      : "^7.3",
+    "notes"    : "This package manager still in experimental stage, we want to make it faster than ever.",
+    "system"   : [
+        "mongoautov2",
+        "phpr_db_models",
+        "phpr_state",
+        "phpr_display",
+        "phpr_render",
+        "phpr_sanitize",
+        "phpr_stream",
+        "phpr_state_mgm"
+    ]
+}
