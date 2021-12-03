@@ -10,6 +10,8 @@ PHPR or PHP Array Framework is a framework highly dependent to an array structur
 ```
 currently under intense development,
 not recomended to use current version.
+version 6 LTS release might delayed, 
+due to project overload.
 ```
 
 ## Basic Folder Structure
