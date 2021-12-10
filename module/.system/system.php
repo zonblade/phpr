@@ -11,7 +11,7 @@ foreach (glob(APPS . "/*") as $urls) {
     $global_apps_array = $global_apps_array + [$last_word=>APPS . '/' . $last_word . '/'];
 }
 $GLOBALS['installed_apps'] = $global_apps_array;
-#YOUR MAIN URLS
+#YOUR MAIN URLS 
 $GLOBALS['global_url']  = $e->url;
 $GLOBALS['uri_folder']  = $e->folder;
 $base_folder            = $e->folder;
