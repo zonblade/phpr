@@ -1,13 +1,14 @@
 {
     "version"  : "0.5.9",
     "php"      : "^7.3",
-    "notes"    : "This package manager still in experimental stage, we want to make it faster than ever.",
+    "notes"    : "Add your newly installed module here.",
     "system"   : [
         "mongoautov2",
         "phpr_db_models",
         "phpr_state",
-        "phpr_display",
+        "phpr_page",
         "phpr_render",
+        "phpr_fetcher",
         "phpr_sanitize",
         "phpr_stream",
         "phpr_state_mgm"

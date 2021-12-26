@@ -1,0 +1,20 @@
+{
+    "url"       : "http://localhost",
+    "folder"    : "/folder/",
+    "time_zone" : "Asia/Makassar",
+    "setup": {
+        "database": {
+            "engine": "mysql",
+            "settings": [
+                {
+                    "instance": 1,
+                    "host": "localhost",
+                    "user": "*",
+                    "pass": "*",
+                    "db": "*"
+                }
+            ]
+        },
+        "redis": false
+    }
+}

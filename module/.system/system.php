@@ -1,5 +1,5 @@
 <?php
-$env_file = file_get_contents(MODL_FOLDER . "/settings.env");
+$env_file = file_get_contents(MODL_FOLDER . "/settings.json");
 $e = json_decode($env_file);
 #TIMEZONE
 date_default_timezone_set($e->time_zone);
