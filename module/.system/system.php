@@ -4,7 +4,7 @@
 */
 $env_file = file_get_contents(MODL_FOLDER . "/settings.json");
 $e = json_decode($env_file);
-$mod_file = file_get_contents(MODL_FOLDER . "/settings.json");
+$mod_file = file_get_contents(MODL_FOLDER . "/module.json");
 $m = json_decode($mod_file);
 /*
     Setting up timezone for global system
