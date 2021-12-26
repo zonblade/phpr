@@ -111,5 +111,6 @@ if (!file_exists(ROOT_FOLDER . '/.htaccess')) {
 
 
 #DO NOT CHANGE
+include __DIR__ . '/log.php';
 include __DIR__ . '/system-sub.php';
 include __DIR__ . '/autoload.php';
