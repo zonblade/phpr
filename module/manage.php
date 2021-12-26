@@ -3,7 +3,7 @@ define("ROOT_FOLDER",'../');
 define("MODL_FOLDER",__DIR__);
 define("APPS"       ,__DIR__.'/apps');
 include __DIR__ . '/.system/system.php';
-$val = getopt('X', ["name:"]);
+$val = getopt('X', ["name:"]); 
 $opt = getopt('X', ["opt:"]);
 if ($opt['opt'] == 'migrate') {
     if ($val == null) {
