@@ -326,12 +326,14 @@ function URIV2($arr_path_init, $app_path, $SERVERPOD)
 
     // recheck again if you see this message future me :)
     // because im not sure it is going to work well or not, ty
+    // (2021 Dec answer)
+    // f me : i already check it and it's going well, but i need to improve
+    // please come back and fix this future me :)
 
     // array_filter($SERVOPATH, fn ($value) => !is_null($value) && $value !== '');
     // array_filter($SERVERPOD, fn ($value) => !is_null($value) && $value !== '');
     // array_filter($SERVORENS, fn ($value) => !is_null($value) && $value !== '');
     // array_filter($SERVOOBJT, fn ($value) => !is_null($value) && $value !== '');
-
     
     //removing any empty key
     foreach ($SERVOPATH as $key => $value) {
@@ -359,31 +361,12 @@ function URIV2($arr_path_init, $app_path, $SERVERPOD)
     array_splice($SERVOOBJT,0,0);
 
     $slug = (object)$SERVOOBJT;
-    // echo '<pre>';
-    // print_r($SERVOPATH);
-    // echo '<br>';
-    // print_r($SERVOPATH);
-    // echo '<br>';
-    // print_r($SERVORENS_CHECK);
-    // echo '<br>';
-    // echo '<br>check this two<br>';
-    // print_r($SERVERPOD);
-    // echo '<br>';
-    // print_r($SERVORENS);
-    // echo '<br>';
-    // echo '<hr>';
     $jsn_a = json_encode($SERVERPOD);
     $jsn_b = json_encode($SERVORENS);
     $b64_A = base64_encode($jsn_a);
     $b64_B = base64_encode($jsn_b);
-    // tested //
     if ($b64_A == $b64_B) {
-        // echo 'Smatch!';
-        // echo $b64_A.'  //  '.$b64_B;
-        // // echo $slug->waktu;
-        // die();
         if (file_exists($app_path)) {
-            // include $app_path;
             $render = new pages($app_path);
             foreach($slug as $slug_key=>$slug_val){
                 if(!is_numeric($slug_key)){
