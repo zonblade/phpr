@@ -202,11 +202,7 @@ function route($array)
 
 function URIV2($arr_path_init, $app_path, $SERVERPOD)
 {
-    // $urlfolder() = str_replace('/', '', urlfolder());
     $arr_path = urlfolder() . '/' . $arr_path_init;
-    // if ($urlfolder() == '') {
-    //     $arr_path = $arr_path_init;
-    // }
     $SERVOPATH = explode("/", $arr_path);
 
     //server pod re arraged!
@@ -221,14 +217,6 @@ function URIV2($arr_path_init, $app_path, $SERVERPOD)
             unset($SERVOPATH[$key]);
     }
     array_splice($SERVOPATH,0,0);
-
-    // route paths //
-    // echo '<br>check this two<br>';
-    // print_r($SERVERPOD);
-    // echo '<br>';
-    // print_r($SERVOPATH);
-    // echo '<br>';
-    // echo '<br>';
 
     //processing//
     $SERVORENS = [];
