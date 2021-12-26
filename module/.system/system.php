@@ -1,5 +1,11 @@
 <?php
 /*
+    system supported from PHP7.X PHP8.X
+    please activate [
+        symlink, (default deisable, please enable)
+        mysqli,  (please re-check)
+        mongodb  (if any)
+    ] if you are using shared/cloud hosting
     Getting settings files
 */
 $env_file = file_get_contents(MODL_FOLDER . "/settings.json");
@@ -12,6 +18,9 @@ $m = json_decode($mod_file);
 date_default_timezone_set($e->time_zone);
 /*
     Getting application lists based on app installed
+    the proccess of fetching apps is not automated anymore
+    since it's using some read resource on the mem and cpu,
+    not ideal for huge traffic so we changed it.
     on module.json
 */
 $GLOBALS['installed_apps'] = (array)$m->apps;
