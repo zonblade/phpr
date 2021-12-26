@@ -1,26 +1,33 @@
 <?php
+/*
+    Getting settings files
+*/
 $env_file = file_get_contents(MODL_FOLDER . "/settings.json");
 $e = json_decode($env_file);
-#TIMEZONE
+$mod_file = file_get_contents(MODL_FOLDER . "/settings.json");
+$m = json_decode($mod_file);
+/*
+    Setting up timezone for global system
+*/
 date_default_timezone_set($e->time_zone);
-#APP INSIDE APPS FODLER!
-$global_apps_array = array();
-foreach (glob(APPS . "/*") as $urls) {
-    $last_word_start = strrpos($urls, '/') + 1;
-    $last_word = substr($urls, $last_word_start);
-    $global_apps_array = $global_apps_array + [$last_word=>APPS . '/' . $last_word . '/'];
-}
-$GLOBALS['installed_apps'] = $global_apps_array;
-#YOUR MAIN URLS 
+/*
+    Getting application lists based on app installed
+    on module.json
+*/
+$GLOBALS['installed_apps'] = (array)$m->apps;
+/*
+    setting up urls from settings.json
+*/
 $GLOBALS['global_url']  = $e->url;
 $GLOBALS['uri_folder']  = $e->folder;
 $base_folder            = $e->folder;
-#DATABASE SETUP
+/*
+    setting up databases from settings.json
+*/
 $GLOBALS['database_setup'] = false;
 $GLOBALS['mongodb'] = false;
 $mongo_database  = [];
 $global_database = [];
-// echo '<pre>';
 if(!is_array($e->setup->database)){
     if($e->setup->database != false){
         $engine = $e->setup->database->engine;
@@ -52,8 +59,6 @@ if(!is_array($e->setup->database)){
     $GLOBALS['mongodb']         = $mongo_database;
     $GLOBALS['database_setup']  = $global_database;
 }
-// print_r($GLOBALS['installed_apps']);
-// die();
 if($e->setup->database == false){
     $GLOBALS['database_setup']  = false;
 }

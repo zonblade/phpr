@@ -1,7 +1,11 @@
 {
     "version"  : "0.5.9",
     "php"      : "^7.3",
-    "notes"    : "Add your newly installed module here.",
+    "notes"    : "Add your installed apps and module here.",
+    "apps"     : [
+        "db",
+        "home"
+    ],
     "system"   : [
         "mongoautov2",
         "phpr_db_models",
